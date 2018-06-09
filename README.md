@@ -1,5 +1,5 @@
 # Tincon2018bot
-Based on: https://github.com/jw84/messenger-bot-tutorial so many thanks for jw84
+Based on: https://github.com/jw84/messenger-bot-tutorial so many thanks to jw84
 # 🤖 Creating your own Facebook Messenger bot
 
 ![Alt text](/demo/Demo.gif)
