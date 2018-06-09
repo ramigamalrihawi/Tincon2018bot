@@ -31,9 +31,30 @@ app.post('/webhook/', function (req, res) {
     for (let i = 0; i < messaging_events.length; i++) {
 	    let event = req.body.entry[0].messaging[i]
 	    let sender = event.sender.id
+	    var phrases = [
+	      "",
+	      "",
+	      "",
+	      ""
+	    ]
 	    if (event.message && event.message.text) {
 		    let text = event.message.text
-		    sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+		    switch(true) {
+		    case (text.includes("hi")):
+		      sendTextMessage(sender, "Was geht?")
+		      break;
+		    case (text.includes("hey")):
+			  sendTextMessage(sender, "Na?")
+		      break;
+		    case (text.includes("angry")):
+			  sendTextMessage(sender, "Ich bin sehhhr fuchsteufelswild!!!")
+		      break;
+		    case (text.includes("tincon")):
+			  sendTextMessage(sender, "lieb das :D")
+		      break; 
+		    default:
+			  sendTextMessage(sender, phrases[Math.floor(Math.random() * phrases.length)])
+			}
 	    }
     }
     res.sendStatus(200)
